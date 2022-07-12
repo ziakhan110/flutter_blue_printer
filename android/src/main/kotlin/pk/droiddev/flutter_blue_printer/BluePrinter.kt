@@ -1,4 +1,4 @@
-package pk.droiddev.blue_printer
+package pk.droiddev.flutter_blue_printer
 
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter

@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:blue_printer/blue_printer.dart';
+import 'package:flutter_blue_printer/flutter_blue_printer.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('blue_printer');
+  const MethodChannel channel = MethodChannel('flutter_blue_printer');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:blue_printer/blue_device.dart';
+import 'package:flutter_blue_printer/blue_device.dart';
 import 'package:flutter/services.dart';
 
 class BluePrinter {
-  static const MethodChannel _channel = MethodChannel('blue_printer');
+  static const MethodChannel _channel = MethodChannel('flutter_blue_printer');
   
   static final BluePrinter _instance = BluePrinter._();
   BluePrinter._();

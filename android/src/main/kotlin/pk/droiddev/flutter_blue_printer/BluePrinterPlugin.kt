@@ -1,4 +1,4 @@
-package pk.droiddev.blue_printer
+package pk.droiddev.flutter_blue_printer
 
 import android.app.Activity
 import android.content.Intent
@@ -29,7 +29,7 @@ class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
     private lateinit var result: Result
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "blue_printer")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_blue_printer")
         channel.setMethodCallHandler(this)
     }
 

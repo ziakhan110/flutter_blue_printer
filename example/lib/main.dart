@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:blue_printer/blue_printer.dart';
+import 'package:flutter_blue_printer/flutter_blue_printer.dart';
 
 void main() {
   runApp(const MyApp());

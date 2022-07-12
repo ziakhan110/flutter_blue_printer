@@ -1,4 +1,4 @@
-group 'pk.droiddev.blue_printer'
+group 'pk.droiddev.flutter_blue_printer'
 version '1.0-SNAPSHOT'
 
 buildscript {

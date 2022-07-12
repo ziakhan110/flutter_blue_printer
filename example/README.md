@@ -1,6 +1,6 @@
 # blue_printer_example
 
-Demonstrates how to use the blue_printer plugin.
+Demonstrates how to use the flutter_blue_printer plugin.
 
 ## Getting Started
 

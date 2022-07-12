@@ -1,4 +1,4 @@
-name: blue_printer
+name: flutter_blue_printer
 description: A new flutter plugin project.
 version: 0.0.1
 homepage:
@@ -28,7 +28,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: pk.droiddev.blue_printer
+        package: pk.droiddev.flutter_blue_printer
         pluginClass: BluePrinterPlugin
 
   # To add assets to your plugin package, add an assets section, like this:

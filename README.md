@@ -1,4 +1,4 @@
-# blue_printer
+# flutter_blue_printer
 
 A new flutter plugin project.
 
