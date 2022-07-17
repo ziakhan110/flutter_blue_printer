@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 class BluePrinter {
   static const MethodChannel _channel = MethodChannel('flutter_blue_printer');
-  
+
   static final BluePrinter _instance = BluePrinter._();
   BluePrinter._();
 
@@ -17,17 +17,14 @@ class BluePrinter {
     return version;
   }
 
-  Future<bool> isAvailable(BlueDevice device) async {
-    return await _channel.invokeMethod('isAvailable', device.toMap());
+  Future<bool> isAvailable() async {
+    return await _channel.invokeMethod('isAvailable');
   }
 
   Future<bool> get isOn async => await _channel.invokeMethod('isOn');
 
-  Future<bool> isConnected(BlueDevice device) async =>
-      await _channel.invokeMethod('isConnected', device.toMap());
 
-  Future<bool> get openSettings async =>
-      await _channel.invokeMethod('openSettings');
+  Future<bool> get openSettings async => await _channel.invokeMethod('openSettings');
 
   ///getBondedDevices()
   Future<List<BlueDevice>> getBondedDevices() async {
@@ -36,24 +33,25 @@ class BluePrinter {
   }
 
   ///isDeviceConnected(BluetoothDevice device)
-  Future<bool> isDeviceConnected(BlueDevice device) async {
-    return await _channel.invokeMethod('isDeviceConnected', device.toMap());
+  Future<bool> isDeviceConnected(String address) async {
+    return await _channel.invokeMethod('isDeviceConnected', {"address": address});
   }
 
   ///connect(BluetoothDevice device)
-  Future<bool> connect(BlueDevice device) async {
-    return await _channel.invokeMethod('connect', device.toMap());
+  Future<bool> connect(String address) async {
+    return await _channel.invokeMethod('connect', {"address": address});
   }
 
   ///disconnect()
-  Future<bool> disconnect(BlueDevice device) async {
-    return await _channel.invokeMethod('disconnect', device.toMap());
+  Future<bool> disconnect(String address) async {
+    return await _channel.invokeMethod('disconnect', {"address": address});
   }
 
   ///write(String message)
-  Future<bool> writeBytes(Uint8List data, BlueDevice device) async {
-    final arguments = device.toMap();
-    arguments['data'] = data;
-    return await _channel.invokeMethod('write', arguments);
+  Future<bool> writeBytes(Uint8List data, String address) async {
+    return await _channel.invokeMethod('write', {
+      "address": address,
+      "data": data,
+    });
   }
 }

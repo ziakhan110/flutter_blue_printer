@@ -17,7 +17,6 @@ import kotlinx.coroutines.withContext
 import java.io.PrintWriter
 import java.io.StringWriter
 
-/** BluePrinterPlugin */
 class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
     /// The MethodChannel that will the communication between Flutter and native Android
     ///
