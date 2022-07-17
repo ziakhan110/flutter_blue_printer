@@ -35,7 +35,7 @@ class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         this.result = result
-        val arguments = call.arguments<Map<String, Any>>()
+        val arguments = call.arguments<Map<String, Any>>() ?: mapOf()
         when (call.method) {
             "isOn" -> {
                 coroutineScope.launch {
@@ -76,7 +76,10 @@ class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
                 }
             }
             "openSettings" -> {
-                activity.startActivity(Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), null)
+                activity.startActivity(
+                    Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS),
+                    null
+                )
                 result.success(true)
             }
             "connect" -> {
@@ -119,13 +122,19 @@ class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
                             val data = arguments["data"] as ByteArray
                             val address = arguments["address"].toString()
                             if (!bluePrinter.isOn()) {
-                                sendError("WriteError", Exception("NotOn", Throwable("Bluetooth device is not on.")))
+                                sendError(
+                                    "WriteError",
+                                    Exception("NotOn", Throwable("Bluetooth device is not on."))
+                                )
                                 return@launch
                             }
                             if (!bluePrinter.isDeviceConnected(address)) {
                                 sendError(
                                     "WriteError",
-                                    Exception("NotConnected", Throwable("The selected device is ont connected."))
+                                    Exception(
+                                        "NotConnected",
+                                        Throwable("The selected device is ont connected.")
+                                    )
                                 )
                                 return@launch
                             }
