@@ -155,13 +155,22 @@ class BluePrinterPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
 
     private suspend fun sendSuccess(resp: Any) {
         withContext(Dispatchers.Main) {
-            result.success(resp)
+            try {
+                result.success(resp)
+            } catch (e: Exception) {
+                print(e.toString())
+            }
         }
     }
 
     private suspend fun sendError(title: String, ex: Exception) {
         withContext(Dispatchers.Main) {
-            result.error(title, ex.message, exceptionString(ex))
+            try {
+                result.error(title, ex.message, exceptionString(ex))
+            } catch (e: Exception) {
+                print(e.toString())
+            }
+
         }
     }
 
