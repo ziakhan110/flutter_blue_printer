@@ -24,8 +24,8 @@ class BlueDevice {
       };
 
   @override
-  operator ==(dynamic other) {
-    return other is BlueDevice && other.address == address;
+  operator ==(covariant BlueDevice other) {
+    return other.address == address;
   }
 
   @override

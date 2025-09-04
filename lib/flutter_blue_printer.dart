@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter_blue_printer/blue_device.dart';
 import 'package:flutter/services.dart';
@@ -23,8 +22,8 @@ class BluePrinter {
 
   Future<bool> get isOn async => await _channel.invokeMethod('isOn');
 
-
-  Future<bool> get openSettings async => await _channel.invokeMethod('openSettings');
+  Future<bool> get openSettings async =>
+      await _channel.invokeMethod('openSettings');
 
   ///getBondedDevices()
   Future<List<BlueDevice>> getBondedDevices() async {
@@ -34,7 +33,8 @@ class BluePrinter {
 
   ///isDeviceConnected(BluetoothDevice device)
   Future<bool> isDeviceConnected(String address) async {
-    return await _channel.invokeMethod('isDeviceConnected', {"address": address});
+    return await _channel
+        .invokeMethod('isDeviceConnected', {"address": address});
   }
 
   ///connect(BluetoothDevice device)
